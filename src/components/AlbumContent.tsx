@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Share } from "lucide-react";
 import { TrackList } from "@/components/TrackList";
@@ -19,7 +20,7 @@ export const AlbumContent: React.FC = () => {
         
         {/* Album Info */}
         <div className="flex flex-col">
-          <h3 className="text-xl text-gray-600 mb-1">A VERY BEARY CHRISTMAS</h3>
+          <h3 className="text-[19px] font-sans text-[#495C65] mb-1">A VERY BEARY CHRISTMAS</h3>
           <p className="text-lg text-gray-500 mb-4">Jon Galante</p>
           
           <button className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors w-fit">
