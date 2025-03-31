@@ -19,21 +19,21 @@ export const Sidebar: React.FC = () => {
             </h1>
           </div>
           
-          {/* Navigation - positioned at the bottom */}
-          <nav className="p-8 pb-20 md:pb-32 mt-auto flex justify-center">
-            <ul className="flex flex-col items-center space-y-6">
+          {/* Navigation - positioned at the bottom with more space */}
+          <nav className="p-8 pb-28 md:pb-40 mt-auto flex justify-center">
+            <ul className="flex flex-col items-center space-y-8">
               <li>
-                <Link to="/" className="text-white text-4xl font-kaushan hover:text-christmas-gold transition-colors">
+                <Link to="/" className="text-white text-5xl font-kaushan hover:text-christmas-gold transition-colors drop-shadow-md">
                   HOME
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-white text-4xl font-kaushan hover:text-christmas-gold transition-colors">
+                <Link to="/" className="text-white text-5xl font-kaushan hover:text-christmas-gold transition-colors drop-shadow-md">
                   ALBUM
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-white text-4xl font-kaushan hover:text-christmas-gold transition-colors">
+                <Link to="/" className="text-white text-5xl font-kaushan hover:text-christmas-gold transition-colors drop-shadow-md">
                   PHOTOS
                 </Link>
               </li>
