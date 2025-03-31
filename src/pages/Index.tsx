@@ -7,19 +7,17 @@ import { PhotoAlbum } from "@/components/PhotoAlbum";
  
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col md:flex-row">
       <SnowflakeEffect />
       
-      <div className="relative flex flex-col md:flex-row">
-        {/* Left Sidebar - Christmas Tree Image and Navigation */}
-        <Sidebar />
-        
-        {/* Main Content */}
-        <main className="flex-1 p-6 md:p-10 bg-white min-h-screen">
-          <AlbumContent />
-          <PhotoAlbum />
-        </main>
-      </div>
+      {/* Left Sidebar - Christmas Tree Image and Navigation */}
+      <Sidebar />
+      
+      {/* Main Content - Scrollable independently */}
+      <main className="flex-1 p-6 md:p-10 bg-white h-screen overflow-y-auto">
+        <AlbumContent />
+        <PhotoAlbum />
+      </main>
     </div>
   );
 };
