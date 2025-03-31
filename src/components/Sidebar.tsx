@@ -12,9 +12,9 @@ export const Sidebar: React.FC = () => {
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-10 flex flex-col justify-between h-full">
-          {/* Title */}
-          <div className="p-6 md:p-12">
-            <h1 className="text-4xl md:text-6xl font-kaushan text-white drop-shadow-lg leading-tight">
+          {/* Title - now centered */}
+          <div className="p-6 md:p-12 text-center">
+            <h1 className="text-4xl md:text-6xl font-kaushan text-white drop-shadow-lg leading-tight inline-block">
               A Very Beary Christmas
             </h1>
           </div>
@@ -44,4 +44,3 @@ export const Sidebar: React.FC = () => {
     </div>
   );
 };
-
