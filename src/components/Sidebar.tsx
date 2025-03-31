@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Sidebar: React.FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageUrl] = useState("/lovable-uploads/55ffc2e8-5dd4-485b-9055-f9d6ef7729ba.png");
+  const [imageUrl] = useState("/lovable-uploads/d6f6ed51-f64b-4c8c-8945-c819b683efc7.png");
 
   useEffect(() => {
     // Check if image exists
@@ -24,7 +24,7 @@ export const Sidebar: React.FC = () => {
           className="w-full h-full bg-center bg-cover bg-no-repeat" 
           style={{ backgroundImage: `url(${imageUrl})` }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-10 flex flex-col justify-between h-full">
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between h-full">
             {/* Title - now centered with exact font size from screenshot */}
             <div className="p-6 md:p-12 text-center">
               <h1 className="text-[40px] font-kaushan text-white drop-shadow-lg leading-tight inline-block">
