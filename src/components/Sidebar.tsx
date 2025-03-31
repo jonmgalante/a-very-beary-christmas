@@ -19,26 +19,30 @@ export const Sidebar: React.FC = () => {
             </h1>
           </div>
           
-          {/* Navigation - positioned at the very bottom with much more space */}
-          <nav className="p-8 pb-32 md:pb-56 mt-auto flex justify-center">
-            <ul className="flex flex-col items-center space-y-10">
+          {/* Navigation - centered vertically and horizontally */}
+          <nav className="flex-1 flex items-center justify-center">
+            <ul className="flex flex-col items-center space-y-14">
               <li>
-                <Link to="/" className="text-white text-6xl font-kaushan hover:text-christmas-gold transition-colors drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]">
+                <Link to="/" className="text-white text-6xl font-kaushan hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] relative">
                   HOME
+                  <div className="absolute w-full h-[3px] bg-white bottom-0 left-0"></div>
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-white text-6xl font-kaushan hover:text-christmas-gold transition-colors drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]">
+                <Link to="/" className="text-white text-6xl font-kaushan hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   ALBUM
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-white text-6xl font-kaushan hover:text-christmas-gold transition-colors drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]">
+                <Link to="/" className="text-white text-6xl font-kaushan hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   PHOTOS
                 </Link>
               </li>
             </ul>
           </nav>
+          
+          {/* Empty space at bottom to match the layout */}
+          <div className="h-32"></div>
         </div>
       </div>
     </div>
