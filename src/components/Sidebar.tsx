@@ -21,19 +21,19 @@ export const Sidebar: React.FC = () => {
           
           {/* Navigation */}
           <nav className="p-8 md:p-12 mt-auto">
-            <ul className="flex flex-col space-y-4">
+            <ul className="flex flex-col space-y-6">
               <li>
-                <Link to="/" className="text-white text-xl md:text-2xl font-semibold hover:text-christmas-gold transition-colors">
+                <Link to="/" className="text-white text-2xl md:text-3xl font-kaushan hover:text-christmas-gold transition-colors">
                   HOME
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-white text-xl md:text-2xl font-semibold hover:text-christmas-gold transition-colors">
+                <Link to="/" className="text-white text-2xl md:text-3xl font-kaushan hover:text-christmas-gold transition-colors">
                   ALBUM
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-white text-xl md:text-2xl font-semibold hover:text-christmas-gold transition-colors">
+                <Link to="/" className="text-white text-2xl md:text-3xl font-kaushan hover:text-christmas-gold transition-colors">
                   PHOTOS
                 </Link>
               </li>
