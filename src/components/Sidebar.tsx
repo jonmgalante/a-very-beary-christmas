@@ -19,8 +19,8 @@ export const Sidebar: React.FC = () => {
             </h1>
           </div>
           
-          {/* Navigation - centered vertically and horizontally */}
-          <nav className="flex-1 flex items-center justify-center">
+          {/* Navigation - at the bottom */}
+          <nav className="pb-12">
             <ul className="flex flex-col items-center space-y-4">
               <li>
                 <Link to="/" className="text-white text-xl font-kaushan hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
@@ -39,11 +39,9 @@ export const Sidebar: React.FC = () => {
               </li>
             </ul>
           </nav>
-          
-          {/* Empty space at bottom to match the layout */}
-          <div className="h-32"></div>
         </div>
       </div>
     </div>
   );
 };
+
