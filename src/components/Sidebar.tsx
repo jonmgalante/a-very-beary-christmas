@@ -12,14 +12,14 @@ export const Sidebar: React.FC = () => {
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-10 flex flex-col justify-between h-full">
-          {/* Title - now centered with exact font size from screenshot */}
+          {/* Title - updated to match 19px Source Sans Pro font in #495C65 color */}
           <div className="p-6 md:p-12 text-center">
-            <h1 className="text-[40px] font-kaushan text-white drop-shadow-lg leading-tight inline-block">
-              A Very Beary Christmas
+            <h1 className="text-[19px] font-sans text-[#495C65] drop-shadow-lg leading-tight uppercase tracking-wide">
+              A VERY BEARY CHRISTMAS
             </h1>
           </div>
           
-          {/* Navigation - at the bottom, updated to match the screenshot with Source Sans Pro font */}
+          {/* Navigation - at the bottom */}
           <nav className="pb-12">
             <ul className="flex flex-col items-center space-y-4">
               <li>
