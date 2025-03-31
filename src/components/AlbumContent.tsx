@@ -5,9 +5,7 @@ import { TrackList } from "@/components/TrackList";
 export const AlbumContent: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-[19px] font-sans text-[#495C65] uppercase tracking-wide mb-10">
-        A VERY BEARY CHRISTMAS
-      </h2>
+      <h2 className="text-[40px] font-kaushan text-[#495C65] mb-10">Album</h2>
       
       <div className="flex flex-col md:flex-row gap-6 mb-8">
         {/* Album Cover */}
