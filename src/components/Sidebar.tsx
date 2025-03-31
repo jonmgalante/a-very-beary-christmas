@@ -8,7 +8,7 @@ export const Sidebar: React.FC = () => {
       <div 
         className="w-full h-full bg-cover bg-center" 
         style={{ 
-          backgroundImage: "url('/lovable-uploads/3265e882-accd-4bbb-936d-b2f7a21dfcf6.png')" 
+          backgroundImage: "url('/lovable-uploads/92073aa6-8b75-4a94-9186-f3116c8e79ce.png')" 
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-10 flex flex-col justify-between h-full">
