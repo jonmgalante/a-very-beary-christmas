@@ -3,6 +3,7 @@ import React from "react";
 import { SnowflakeEffect } from "@/components/SnowflakeEffect";
 import { Sidebar } from "@/components/Sidebar";
 import { AlbumContent } from "@/components/AlbumContent";
+import { PhotoAlbum } from "@/components/PhotoAlbum";
  
 const Index: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Index: React.FC = () => {
         {/* Main Content */}
         <main className="flex-1 p-6 md:p-10 bg-white min-h-screen">
           <AlbumContent />
+          <PhotoAlbum />
         </main>
       </div>
     </div>
