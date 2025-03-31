@@ -6,9 +6,11 @@ export const Sidebar: React.FC = () => {
   return (
     <div className="relative w-full md:w-[470px] h-screen sticky top-0">
       <div 
-        className="w-full h-full bg-cover bg-center" 
+        className="w-full h-full bg-cover bg-center bg-no-repeat" 
         style={{ 
-          backgroundImage: "url('/lovable-uploads/33ba8f56-6684-4014-a8b6-d6cfe526ba05.png')" 
+          backgroundImage: "url('/lovable-uploads/33ba8f56-6684-4014-a8b6-d6cfe526ba05.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center"
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-10 flex flex-col justify-between h-full">
