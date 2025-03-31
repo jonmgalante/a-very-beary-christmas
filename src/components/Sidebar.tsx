@@ -12,9 +12,9 @@ export const Sidebar: React.FC = () => {
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-10 flex flex-col justify-between h-full">
-          {/* Title - now centered */}
+          {/* Title - now centered with exact font size from screenshot */}
           <div className="p-6 md:p-12 text-center">
-            <h1 className="text-4xl md:text-6xl font-kaushan text-white drop-shadow-lg leading-tight inline-block">
+            <h1 className="text-[40px] font-kaushan text-white drop-shadow-lg leading-tight inline-block">
               A Very Beary Christmas
             </h1>
           </div>
