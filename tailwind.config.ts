@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,6 +20,13 @@ export default {
 		},
 		extend: {
 			colors: {
+				christmas: {
+					red: "#c22026",
+					green: "#146b3a",
+					gold: "#f8b229",
+          background: "#f5f5f5",
+          dark: "#1a1a1a"
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -63,6 +71,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+        sans: ['Source Sans Pro', 'sans-serif'],
+        kaushan: ['Kaushan Script', 'cursive']
+      },
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -84,11 +96,21 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'snow-fall': {
+          '0%': { transform: 'translateY(0) rotate(0deg)' },
+          '100%': { transform: 'translateY(100vh) rotate(360deg)' }
+        },
+        'twinkle': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.3' }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'snow-fall': 'snow-fall 15s linear infinite',
+        'twinkle': 'twinkle 2s ease-in-out infinite'
 			}
 		}
 	},
