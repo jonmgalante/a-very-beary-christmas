@@ -10,15 +10,12 @@ export const AlbumContent: React.FC = () => {
       
       <div className="flex flex-col md:flex-row gap-6 mb-8">
         {/* Album Cover */}
-        <div className="w-full md:w-56 lg:w-64 relative">
+        <div className="w-full md:w-56 lg:w-64">
           <img 
             src="/lovable-uploads/e892dbad-3af9-4985-a0b2-400c58426d28.png" 
             alt="Christmas Tree" 
             className="w-full h-auto rounded-md shadow-md"
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-center text-sm">
-            A Very Beary Christmas
-          </div>
         </div>
         
         {/* Album Info */}
