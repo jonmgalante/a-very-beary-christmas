@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Share } from "lucide-react";
 import { TrackList } from "@/components/TrackList";
@@ -6,7 +5,7 @@ import { TrackList } from "@/components/TrackList";
 export const AlbumContent: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-5xl md:text-6xl font-kaushan text-gray-700 mb-10">Album</h2>
+      <h2 className="text-[40px] font-kaushan text-[#495C65] mb-10">Album</h2>
       
       <div className="flex flex-col md:flex-row gap-6 mb-8">
         {/* Album Cover */}
