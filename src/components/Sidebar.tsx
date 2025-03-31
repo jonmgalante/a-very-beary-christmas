@@ -19,9 +19,9 @@ export const Sidebar: React.FC = () => {
             </h1>
           </div>
           
-          {/* Navigation */}
-          <nav className="p-8 md:p-12 mt-auto">
-            <ul className="flex flex-col space-y-6">
+          {/* Navigation - positioned at the bottom center */}
+          <nav className="p-8 pb-20 md:pb-32 mt-auto flex justify-center">
+            <ul className="flex flex-col items-center space-y-4">
               <li>
                 <Link to="/" className="text-white text-2xl md:text-3xl font-kaushan hover:text-christmas-gold transition-colors">
                   HOME
