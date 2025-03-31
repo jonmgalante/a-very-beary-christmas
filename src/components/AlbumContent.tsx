@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Share } from "lucide-react";
 import { TrackList } from "@/components/TrackList";
@@ -9,22 +10,25 @@ export const AlbumContent: React.FC = () => {
       
       <div className="flex flex-col md:flex-row gap-6 mb-8">
         {/* Album Cover */}
-        <div className="w-full md:w-48 lg:w-56">
+        <div className="w-full md:w-56 lg:w-64 relative">
           <img 
-            src="/lovable-uploads/3265e882-accd-4bbb-936d-b2f7a21dfcf6.png" 
+            src="/lovable-uploads/e892dbad-3af9-4985-a0b2-400c58426d28.png" 
             alt="Christmas Tree" 
             className="w-full h-auto rounded-md shadow-md"
           />
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-center text-sm">
+            A Very Beary Christmas
+          </div>
         </div>
         
         {/* Album Info */}
         <div className="flex flex-col">
-          <h3 className="text-xl text-gray-600 mb-1">A VERY BEARY CHRISTMAS</h3>
+          <h3 className="text-[19px] font-sans text-[#495C65] mb-1">A VERY BEARY CHRISTMAS</h3>
           <p className="text-lg text-gray-500 mb-4">Jon Galante</p>
           
-          <button className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors w-fit">
+          <button className="flex items-center gap-2 text-[#495C65] hover:text-gray-800 transition-colors w-fit">
             <Share size={18} />
-            <span className="uppercase font-medium">Share</span>
+            <span className="uppercase font-medium">SHARE</span>
           </button>
           
           <p className="mt-6 text-gray-600">
