@@ -14,7 +14,7 @@ const Index: React.FC = () => {
       <Sidebar />
       
       {/* Main Content - Scrollable independently */}
-      <main className="flex-1 p-6 md:p-10 bg-[#4d6574] h-screen overflow-y-auto">
+      <main className="flex-1 p-6 md:p-10 bg-white h-screen overflow-y-auto">
         <AlbumContent />
         <PhotoAlbum />
       </main>
