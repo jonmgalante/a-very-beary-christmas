@@ -42,8 +42,8 @@ const photos = [
 
 export const PhotoAlbum: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto mt-16 mb-10 bg-[#4d6574] py-16 px-10 rounded-md">
-      <h2 className="text-5xl md:text-6xl font-kaushan text-gray-700 mb-10">Photos</h2>
+    <div className="w-full mt-16 bg-[#4d6574] py-16 px-10">
+      <h2 className="text-5xl md:text-6xl font-kaushan text-white mb-10">Photos</h2>
       
       {/* Mobile Carousel (visible on small screens) */}
       <div className="block md:hidden">
