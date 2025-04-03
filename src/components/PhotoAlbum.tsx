@@ -133,6 +133,81 @@ const photos = [
     src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fsubway.jpg?alt=media&token=e33ea526-4459-4ef8-ab21-6912010346e4",
     alt: "Subway",
   },
+  {
+    id: 26,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fminalima.jpg?alt=media&token=bf67c409-5b57-40be-b36e-9ba4132d497b",
+    alt: "Minalima",
+  },
+  {
+    id: 27,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fpizza.jpg?alt=media&token=378f7ef1-2125-4300-a681-859c50a3bd64",
+    alt: "Pizza Stove",
+  },
+  {
+    id: 28,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fstockings.jpg?alt=media&token=57f85981-a23c-4fc9-8322-aea84ca4d7f2",
+    alt: "Stockings",
+  },
+  {
+    id: 29,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fstairs.jpg?alt=media&token=7927874f-adc0-437b-a610-543b522e4cda",
+    alt: "The Stair Photo",
+  },
+  {
+    id: 30,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fview.jpg?alt=media&token=b946fdd4-55e1-4b7e-ac01-c967d9a8a7ed",
+    alt: "Saga Rooftop",
+  },
+  {
+    id: 31,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Floft.jpg?alt=media&token=a95d4b78-c40c-4ce8-b601-d4fc7b719c60",
+    alt: "Loft",
+  },
+  {
+    id: 32,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Flatkes.jpg?alt=media&token=532ba2c1-4fe7-41a1-8a05-b82f1631600f",
+    alt: "The Latkes",
+  },
+  {
+    id: 33,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2FChristmas%20tree%20shop.jpg?alt=media&token=82c21d72-fb67-4f01-9293-d2658ee3f4da",
+    alt: "Christmas Tree Shop",
+  },
+  {
+    id: 34,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fgingerbread.jpg?alt=media&token=fe9f1434-4992-4ba1-9ef4-ec8094fab386",
+    alt: "Gingerbread Houses",
+  },
+  {
+    id: 35,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fkitty.jpg?alt=media&token=66dc100b-77ce-40f6-9fdd-815946b692fd",
+    alt: "Kitty",
+  },
+  {
+    id: 36,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Ff%26m.jpg?alt=media&token=1aa9d3d2-c92b-411f-9b41-d6ba014fa6f5",
+    alt: "F&M",
+  },
+  {
+    id: 37,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fhp.jpg?alt=media&token=d12d54b2-0e1e-4714-9a97-53bbaa5fe18c",
+    alt: "The Yule Ball",
+  },
+  {
+    id: 38,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fhometree.jpg?alt=media&token=62986df1-195b-47a6-82dc-ae6f15222c34",
+    alt: "Our First Tree",
+  },
+  {
+    id: 39,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2Fhometree2.jpg?alt=media&token=35e2ecb7-7741-410e-8c65-813461d590a9",
+    alt: "Our Second Tree",
+  },
+  {
+    id: 40,
+    src: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2FJon%20%26%20Flynn.jpg?alt=media&token=5ad45da2-293c-4bff-901b-0ec41ee0d93a",
+    alt: "Sugar Bear & Flynn",
+  },
 ];
 
 export const PhotoAlbum: React.FC = () => {
