@@ -12,7 +12,7 @@ export const AlbumContent: React.FC = () => {
   {/* Album Cover */}
   <div className="w-full max-w-xs md:max-w-[16rem] md:w-56 lg:w-64">
     <img 
-      src="/lovable-uploads/e892dbad-3af9-4985-a0b2-400c58426d28.png" 
+      src="https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2FHome_Album%20Cover.jpg?alt=media&token=c0783e05-8973-4ad1-8bd3-f0329441ce88" 
       alt="Christmas Tree" 
       className="w-full h-auto rounded-md shadow-md"
     />

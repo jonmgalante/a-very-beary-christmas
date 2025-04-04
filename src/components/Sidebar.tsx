@@ -7,7 +7,7 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageUrl] = useState("/lovable-uploads/d6f6ed51-f64b-4c8c-8945-c819b683efc7.png");
+  const [imageUrl] = useState("https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/images%2FHome_Album%20Cover.jpg?alt=media&token=c0783e05-8973-4ad1-8bd3-f0329441ce88");
 
   useEffect(() => {
     const img = new Image();
