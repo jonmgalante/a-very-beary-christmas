@@ -1,13 +1,15 @@
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
-export const Sidebar: React.FC = () => {
+interface SidebarProps {
+  minimal?: boolean; // optional, still allows mobile-specific behavior
+}
+
+export const Sidebar: React.FC<SidebarProps> = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageUrl] = useState("/lovable-uploads/d6f6ed51-f64b-4c8c-8945-c819b683efc7.png");
 
   useEffect(() => {
-    // Check if image exists
     const img = new Image();
     img.onload = () => setImageLoaded(true);
     img.onerror = () => {
@@ -18,74 +20,23 @@ export const Sidebar: React.FC = () => {
   }, [imageUrl]);
 
   return (
-    <div className="relative w-full md:w-[470px] h-screen sticky top-0">
+    <div className="relative w-full md:w-[470px] h-screen md:sticky top-0">
       {imageLoaded ? (
         <div 
           className="w-full h-full bg-center bg-cover bg-no-repeat" 
           style={{ backgroundImage: `url(${imageUrl})` }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between h-full">
-            {/* Title - now centered with exact font size from screenshot */}
-            <div className="p-6 md:p-12 text-center">
-              <h1 className="text-[40px] font-kaushan text-white drop-shadow-lg leading-tight inline-block">
-                A Very Beary Christmas
-              </h1>
-            </div>
-            
-            {/* Navigation - at the bottom, updated to match the screenshot with Source Sans Pro font 
-            <nav className="pb-12">
-              <ul className="flex flex-col items-center space-y-4">
-                <li>
-                  <Link to="/" className="text-white text-[18px] font-sans hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    HOME
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="text-white text-[18px] font-sans hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    ALBUM
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="text-white text-[18px] font-sans hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    PHOTOS
-                  </Link>
-                </li>
-              </ul>
-            </nav>*/}
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-start justify-center p-6 md:p-12">
+            <h1 className="text-[40px] font-kaushan text-white drop-shadow-lg leading-tight text-center">
+              A Very Beary Christmas
+            </h1>
           </div>
         </div>
       ) : (
-        // Fallback when image fails to load
-        <div className="w-full h-full bg-gradient-to-b from-[#0f2027] via-[#203a43] to-[#2c5364]">
-          <div className="absolute inset-0 flex flex-col justify-between h-full">
-            {/* Title */}
-            <div className="p-6 md:p-12 text-center">
-              <h1 className="text-[40px] font-kaushan text-white drop-shadow-lg leading-tight inline-block">
-                A Very Beary Christmas
-              </h1>
-            </div>
-            
-            {/* Navigation */}
-            <nav className="pb-12">
-              <ul className="flex flex-col items-center space-y-4">
-                <li>
-                  <Link to="/" className="text-white text-[18px] font-sans hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    HOME
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="text-white text-[18px] font-sans hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    ALBUM
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="text-white text-[18px] font-sans hover:text-christmas-gold transition-colors uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    PHOTOS
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
+        <div className="w-full h-full bg-gradient-to-b from-[#0f2027] via-[#203a43] to-[#2c5364] flex items-start justify-center p-6 md:p-12">
+          <h1 className="text-[40px] font-kaushan text-white drop-shadow-lg leading-tight text-center">
+            A Very Beary Christmas
+          </h1>
         </div>
       )}
     </div>

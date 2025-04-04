@@ -212,38 +212,17 @@ const photos = [
 
 export const PhotoAlbum: React.FC = () => {
   return (
-    <div className="w-full mt-16 bg-[#4d6574] py-16 px-10">
+    <div className="w-full mt-16 bg-[#4d6574] py-16 px-4 md:px-10">
       <h2 className="text-5xl md:text-6xl font-kaushan text-white mb-10">Photos</h2>
       
-      {/* Mobile Carousel (visible on small screens) */}
-      <div className="block md:hidden">
-        <Carousel>
-          <CarouselContent>
-            {photos.map((photo) => (
-              <CarouselItem key={photo.id}>
-                <div className="p-1">
-                  <div className="overflow-hidden rounded-md">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="w-full h-64 object-cover rounded-md"
-                    />
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </div>
-      
-      {/* Grid Layout (visible on medium screens and up) */}
-      <div className="hidden md:grid grid-cols-3 gap-4">
+      {/* Responsive Grid for all screen sizes */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
         {photos.map((photo) => (
           <div key={photo.id} className="overflow-hidden rounded-md">
             <img
               src={photo.src}
               alt={photo.alt}
-              className="w-full h-64 object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer"
+              className="w-full h-full aspect-square object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer"
             />
           </div>
         ))}

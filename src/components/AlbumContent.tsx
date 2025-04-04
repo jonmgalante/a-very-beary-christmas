@@ -8,31 +8,27 @@ export const AlbumContent: React.FC = () => {
     <div className="max-w-4xl mx-auto">
       <h2 className="text-[40px] font-kaushan text-[#495C65] mb-10">Album</h2>
       
-      <div className="flex flex-col md:flex-row gap-6 mb-8">
-        {/* Album Cover */}
-        <div className="w-full md:w-56 lg:w-64">
-          <img 
-            src="/lovable-uploads/e892dbad-3af9-4985-a0b2-400c58426d28.png" 
-            alt="Christmas Tree" 
-            className="w-full h-auto rounded-md shadow-md"
-          />
-        </div>
-        
-        {/* Album Info */}
-        <div className="flex flex-col">
-          <h3 className="text-[19px] font-sans text-[#495C65] mb-1">A VERY BEARY CHRISTMAS</h3>
-          <p className="text-lg text-gray-500 mb-4">Jon Galante</p>
-          
-          {/*<button className="flex items-center gap-2 text-[#495C65] hover:text-gray-800 transition-colors w-fit">
-            <Share size={18} />
-            <span className="uppercase font-medium">SHARE</span>
-          </button>*/}
-          
-          <p className="mt-6 text-gray-600">
-            A few of our holiday favorites, plus a bonus track! I love you :)
-          </p>
-        </div>
-      </div>
+      <div className="flex flex-col md:flex-row gap-6 mb-8 items-center md:items-start">
+  {/* Album Cover */}
+  <div className="w-full max-w-xs md:max-w-[16rem] md:w-56 lg:w-64">
+    <img 
+      src="/lovable-uploads/e892dbad-3af9-4985-a0b2-400c58426d28.png" 
+      alt="Christmas Tree" 
+      className="w-full h-auto rounded-md shadow-md"
+    />
+  </div>
+  
+  {/* Album Info */}
+  <div className="text-center md:text-left md:ml-4">
+    <h3 className="text-[19px] font-sans text-[#495C65] mb-1 uppercase tracking-wide">
+      A VERY BEARY CHRISTMAS
+    </h3>
+    <p className="text-lg text-gray-500 mb-4">Jon Galante</p>
+    <p className="mt-2 text-gray-600">
+      A few of our holiday favorites, plus a bonus track! I love you :)
+    </p>
+  </div>
+</div>
       
       {/* Track List */}
       <div className="mt-8">
