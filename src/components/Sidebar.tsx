@@ -32,7 +32,7 @@ export const Sidebar: React.FC = () => {
               </h1>
             </div>
             
-            {/* Navigation - at the bottom, updated to match the screenshot with Source Sans Pro font */}
+            {/* Navigation - at the bottom, updated to match the screenshot with Source Sans Pro font 
             <nav className="pb-12">
               <ul className="flex flex-col items-center space-y-4">
                 <li>
@@ -51,7 +51,7 @@ export const Sidebar: React.FC = () => {
                   </Link>
                 </li>
               </ul>
-            </nav>
+            </nav>*/}
           </div>
         </div>
       ) : (

@@ -23,10 +23,10 @@ export const AlbumContent: React.FC = () => {
           <h3 className="text-[19px] font-sans text-[#495C65] mb-1">A VERY BEARY CHRISTMAS</h3>
           <p className="text-lg text-gray-500 mb-4">Jon Galante</p>
           
-          <button className="flex items-center gap-2 text-[#495C65] hover:text-gray-800 transition-colors w-fit">
+          {/*<button className="flex items-center gap-2 text-[#495C65] hover:text-gray-800 transition-colors w-fit">
             <Share size={18} />
             <span className="uppercase font-medium">SHARE</span>
-          </button>
+          </button>*/}
           
           <p className="mt-6 text-gray-600">
             A few of our holiday favorites, plus a bonus track! I love you :)

@@ -1,11 +1,15 @@
 
-import React, { useState } from "react";
-import { Play, SkipBack, SkipForward } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { Play, Pause, SkipBack, SkipForward } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 
 export const TrackList: React.FC = () => {
   const [selectedTrack, setSelectedTrack] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const tracks = [
     { id: 1, title: "It's Beginning To Look A Lot Like Christmas", duration: "3:25", url: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/audio%2FIt's%20Beginning%20To%20Look%20A%20Lot%20Like%20Christmas.wav?alt=media&token=7c260197-4edb-4978-b7a2-144092613bb5"},
@@ -17,56 +21,122 @@ export const TrackList: React.FC = () => {
     { id: 7, title: "All of Me", duration: "4:29", url: "https://firebasestorage.googleapis.com/v0/b/a-very-beary-christmas-d4a4c.firebasestorage.app/o/audio%2FAll%20of%20Me.wav?alt=media&token=6fadca2f-3a4e-4b49-a4a0-7499414bc64d"},
   ];
 
+  // Format time (mm:ss)
+  const formatTime = (time: number) => {
+    const mins = Math.floor(time / 60);
+    const secs = Math.floor(time % 60);
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  const handlePlayPause = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+  
+    if (!isPlaying) {
+      audio.play().catch((err) => console.error("Playback error:", err));
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleSkipBack = () => {
+    setSelectedTrack((prev) => Math.max(prev - 1, 0));
+    setIsPlaying(true);
+  };
+
+  const handleSkipForward = () => {
+    setSelectedTrack((prev) => Math.min(prev + 1, tracks.length - 1));
+    setIsPlaying(true);
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+
+    return () => {
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
+    };
+  }, []);
+  
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateTime = () => {
+      setCurrentTime(audio.currentTime);
+      setDuration(audio.duration);
+    };
+
+    const handleEnded = () => {
+      handleSkipForward();
+    };
+
+    audio.addEventListener("timeupdate", updateTime);
+    audio.addEventListener("ended", handleEnded);
+    audio.load();
+    if (isPlaying) {
+      audio.play();
+    }
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateTime);
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, [selectedTrack]);
+
   return (
     <div>
-      {/* Audio Element (native controls temporarily styled to match page) */}
-      <audio
-        id="audio-player"
-        src={tracks[selectedTrack].url}
-        controls
-        autoPlay
-        className="w-full mb-4 rounded shadow border border-gray-200 bg-gray-50"
-      />
-      
-      {/* Player Controls */}
+      {/* Hidden audio element */}
+      <audio ref={audioRef} src={tracks[selectedTrack].url} autoPlay style={{ display: "none" }} />
+
+      {/* Custom Styled Player */}
       <div className="flex items-center justify-between mb-4 bg-gray-100 p-3 rounded">
-      <Button
-       size="icon"
-       variant="ghost"
-       className="h-8 w-8"
-       onClick={() => {
-             const audio = document.getElementById("audio-player") as HTMLAudioElement;
-             audio?.play();
-                 }}
-                >
-       <Play className="h-5 w-5" />
-       </Button>
-        <div className="uppercase font-medium text-gray-700">
-          IT'S BEGINNING TO LOOK A LOT LIKE CHRISTMAS
+        <Button size="icon" variant="ghost" className="h-8 w-8" onClick={handlePlayPause}>
+          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+        </Button>
+        <div className="uppercase font-medium text-gray-700 text-center truncate max-w-[60%]">
+          {tracks[selectedTrack].title}
         </div>
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" className="h-8 w-8">
+          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleSkipBack}>
             <SkipBack className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8">
+          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleSkipForward}>
             <SkipForward className="h-4 w-4" />
           </Button>
-          <span className="text-sm text-gray-500">0:00/3:25</span>
+          <span className="text-sm text-gray-500">
+            {formatTime(currentTime)} / {formatTime(duration || 0)}
+          </span>
         </div>
       </div>
 
       {/* Progress Bar */}
       <div className="w-full h-1 bg-gray-200 mb-6">
-        <div className="h-full bg-gray-400" style={{ width: "0%" }}></div>
+        <div
+          className="h-full bg-gray-400"
+          style={{ width: `${(currentTime / (duration || 1)) * 100}%` }}
+        ></div>
       </div>
 
       {/* Track Listing */}
       <div className="space-y-2">
         {tracks.map((track, index) => (
           <div key={track.id}>
-            <div 
+            <div
               className="flex items-center justify-between py-3 px-2 hover:bg-gray-50 cursor-pointer"
-              onClick={() => setSelectedTrack(index)}
+              onClick={() => {
+                setSelectedTrack(index);
+                setIsPlaying(true);
+              }}
             >
               <div className="flex items-center gap-4">
                 <span className="text-gray-400 w-4">{track.id}</span>
