@@ -18,12 +18,162 @@
     
     
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- 🔐 Password overlay styles -->
+    <style>
+      .password-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        backdrop-filter: blur(3px);
+      }
+
+      .password-dialog {
+        background: #ffffff;
+        padding: 2rem 2.5rem;
+        border-radius: 12px;
+        max-width: 320px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      .password-dialog h1 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+      }
+
+      .password-dialog p {
+        margin: 0.25rem 0 1rem;
+        font-size: 0.95rem;
+      }
+
+      #password-input {
+        width: 100%;
+        padding: 0.6rem 0.75rem;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+      }
+
+      #password-submit {
+        width: 100%;
+        padding: 0.6rem 0.75rem;
+        border-radius: 6px;
+        border: none;
+        font-size: 0.95rem;
+        cursor: pointer;
+        background: #1b5e20;
+        color: white;
+        font-weight: 600;
+      }
+
+      #password-submit:hover {
+        opacity: 0.9;
+      }
+
+      .password-error {
+        color: #c62828;
+        min-height: 1.25rem;
+        font-size: 0.85rem;
+      }
+    </style>
+
   </head>
 
   <body>
+<!-- 🔐 Password gate overlay (shown on first visit) -->
+    <div id="password-overlay" class="password-overlay">
+      <div class="password-dialog">
+        <h1>Welcome 🎄</h1>
+        <p>What's the secret password?</p>
+        <input
+          type="password"
+          id="password-input"
+          placeholder="Password"
+          autocomplete="off"
+        />
+        <button id="password-submit">Enter</button>
+        <p id="password-error" class="password-error"></p>
+      </div>
+    </div>
+
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+
+<!-- 🔐 Password logic -->
+    <script>
+      // Change this to whatever shared password you want.
+      // Do NOT reuse any important password you use elsewhere.
+      const SITE_PASSWORD = "Juliet2024";
+      const STORAGE_KEY = "averybeary_access_granted";
+
+      function grantAccess() {
+        localStorage.setItem(STORAGE_KEY, "true");
+        const overlay = document.getElementById("password-overlay");
+        if (overlay) {
+          overlay.style.display = "none";
+        }
+      }
+
+      function showOverlay() {
+        const overlay = document.getElementById("password-overlay");
+        if (overlay) {
+          overlay.style.display = "flex";
+        }
+      }
+
+      function handleSubmit() {
+        const input = document.getElementById("password-input");
+        const error = document.getElementById("password-error");
+        if (!input) return;
+
+        const value = input.value.trim();
+        if (value === SITE_PASSWORD) {
+          grantAccess();
+        } else {
+          if (error) {
+            error.textContent = "Incorrect! Try again :)";
+          }
+          input.value = "";
+          input.focus();
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const granted = localStorage.getItem(STORAGE_KEY) === "true";
+        const submitBtn = document.getElementById("password-submit");
+        const input = document.getElementById("password-input");
+
+        if (granted) {
+          grantAccess();
+        } else {
+          showOverlay();
+        }
+
+        if (submitBtn) {
+          submitBtn.addEventListener("click", handleSubmit);
+        }
+
+        if (input) {
+          input.addEventListener("keyup", function (e) {
+            if (e.key === "Enter") {
+              handleSubmit();
+            }
+          });
+        }
+      });
+    </script>
+
   </body>
 </html>
