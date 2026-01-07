@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,13 +10,15 @@
     <meta property="og:title" content="A Very Beary Christmas" />
     <meta property="og:description" content="Join our beary special Christmas celebration!" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/lovable-uploads/532483d9-4299-413c-b2ac-6f0900f04465.png" />
+    <meta
+      property="og:image"
+      content="/lovable-uploads/532483d9-4299-413c-b2ac-6f0900f04465.png"
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@bearychristmas" />
-    
-    
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
     <!-- 🔐 Password overlay styles -->
     <style>
@@ -85,12 +86,21 @@
         min-height: 1.25rem;
         font-size: 0.85rem;
       }
-    </style>
 
+      /* Hide site content until password is entered (prevents "peek" behind overlay) */
+      #root {
+        display: none;
+      }
+
+      /* Prevent scrolling while locked */
+      body.password-locked {
+        overflow: hidden;
+      }
+    </style>
   </head>
 
   <body>
-<!-- 🔐 Password gate overlay (shown on first visit) -->
+    <!-- 🔐 Password gate overlay (shown on every visit) -->
     <div id="password-overlay" class="password-overlay">
       <div class="password-dialog">
         <h1>Welcome 🎄</h1>
@@ -107,22 +117,28 @@
     </div>
 
     <div id="root"></div>
+
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
 
-<!-- 🔐 Password logic -->
+    <!-- 🔐 Password logic -->
     <script>
       // Change this to whatever shared password you want.
       // Do NOT reuse any important password you use elsewhere.
       const SITE_PASSWORD = "Juliet2024";
-      const STORAGE_KEY = "averybeary_access_granted";
 
       function grantAccess() {
-        localStorage.setItem(STORAGE_KEY, "true");
         const overlay = document.getElementById("password-overlay");
         if (overlay) {
           overlay.style.display = "none";
+        }
+
+        document.body.classList.remove("password-locked");
+
+        const root = document.getElementById("root");
+        if (root) {
+          root.style.display = "block";
         }
       }
 
@@ -130,6 +146,13 @@
         const overlay = document.getElementById("password-overlay");
         if (overlay) {
           overlay.style.display = "flex";
+        }
+
+        document.body.classList.add("password-locked");
+
+        const root = document.getElementById("root");
+        if (root) {
+          root.style.display = "none";
         }
       }
 
@@ -151,15 +174,14 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        const granted = localStorage.getItem(STORAGE_KEY) === "true";
         const submitBtn = document.getElementById("password-submit");
         const input = document.getElementById("password-input");
 
-        if (granted) {
-          grantAccess();
-        } else {
-          showOverlay();
-        }
+        // Always require the password on every page load
+        try {
+          localStorage.removeItem("averybeary_access_granted");
+        } catch (e) {}
+        showOverlay();
 
         if (submitBtn) {
           submitBtn.addEventListener("click", handleSubmit);
@@ -174,6 +196,5 @@
         }
       });
     </script>
-
   </body>
 </html>
